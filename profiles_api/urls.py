@@ -8,6 +8,7 @@ from profiles_api import views
 router = DefaultRouter()
 router.register('hello-viewset', views.HelloViewSet, base_name='hello-viewset')
 router.register('profile', views.UserProfileViewSet)
+router.register('feed', views.UserProfileFeedViewSet)
 #(name of url, view, retrieving URLs in our router)
 #Api Root page will only show routes registered via DefaultRouter().
 #Only need to specify the base_name if the ViewSet doesn't have a queryset.

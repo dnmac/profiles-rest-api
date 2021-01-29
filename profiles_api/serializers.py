@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from profiles_api import models
+from rest_framework import viewsets
+
 
 class HelloSerializer(serializers.Serializer):
     """Serializes a name field for testing our APIView"""
@@ -39,10 +41,12 @@ class UserProfileSerializer(serializers.ModelSerializer):
         return super().update(instance, validated_data) #Pass to existing update() method.
 
 
-# class ProfileFeedItemSerializer(serializers.ModelSerializer):
-#     """Serializes profile feed items"""
+class ProfileFeedItemSerializer(serializers.ModelSerializer):
+    """Serializes profile feed items"""
 
-#     class Meta:
-#         model = models.ProfileFeedItem
-#         fields = ('id', 'user_profile', 'status_text', 'created_on')
-#         extra_kwargs = {'user_profile': {'read_only': True}}
+    class Meta:
+        model = models.ProfileFeedItem
+        fields = ('id', 'user_profile', 'status_text', 'created_on')
+        extra_kwargs = {'user_profile': {'read_only': True}}
+    
+    
