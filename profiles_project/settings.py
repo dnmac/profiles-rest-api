@@ -23,7 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'cy8ibe(%q5k_!*9s6m#6-(c1-*$&trguz^3bhmm)nxab3p4x*9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#Pull in debug cariable from supervisor_prof_api.conf, when on desktop debug=True=1
+#On AWS Debug=0=False
+DEBUG = bool(int(os.environ.get('DEBUG', 1)))
 
 ALLOWED_HOSTS = []
 
@@ -121,6 +123,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = 'static/'
 
 #Overrides django's standard user model with our own UserProfile model.
 AUTH_USER_MODEL = 'profiles_api.UserProfile'
