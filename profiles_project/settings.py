@@ -27,7 +27,10 @@ SECRET_KEY = 'cy8ibe(%q5k_!*9s6m#6-(c1-*$&trguz^3bhmm)nxab3p4x*9'
 #On AWS Debug=0=False
 DEBUG = bool(int(os.environ.get('DEBUG', 1)))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'ec2-18-133-31-52.eu-west-2.compute.amazonaws.com',
+    '127.0.0.1'
+]
 
 
 # Application definition
